@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Geral de Indicadores — Todos os Contratos</title>
+    
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Hub Geral de Indicadores unificado da MRO. Acesse painéis de processos, pessoas, inventário, SMS e gestão de todos os contratos em um único lugar.">
+    <meta name="keywords" content="MRO, Hub de Indicadores, Dashboard, Power BI, Processos, Pessoas, Inventário, SMS, Gestão, Acelen, CBO, CLI, ENEL, Equatorial, Globo, Light, MetrôRio, Modec, Motiva, Petrobras, Rumo, Vale">
+    <meta name="author" content="MRO">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilo customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-pending">
+    <div class="app-container">
+        <!-- Sidebar / Menu Lateral Fixo -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <!-- Logo MRO -->
+                <a href="#" class="logo-link" id="logo-home" title="Página Inicial - Hub Geral de Indicadores">
+                    <div class="logo-wrapper">
+                        <img src="mro_logo.png" alt="MRO" class="mro-logo-img">
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Menu de Navegação -->
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-button active" data-category="all" id="btn-visao-geral">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="9"></rect>
+                                    <rect x="14" y="3" width="7" height="5"></rect>
+                                    <rect x="14" y="12" width="7" height="9"></rect>
+                                    <rect x="3" y="16" width="7" height="5"></rect>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Visão Geral</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-category="processos" id="btn-processos">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Processos</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-category="pessoas" id="btn-pessoas">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Pessoas</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-category="inventario" id="btn-inventario">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Inventário</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-category="sms" id="btn-sms">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </span>
+                            <span class="nav-text">SMS</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-button" data-category="gestao" id="btn-gestao">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Gestão</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item admin-only" id="nav-user-management" hidden>
+                        <button class="nav-button" data-admin-view="users" id="btn-user-management">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M19 8v6"></path><path d="M22 11h-6"></path></svg>
+                            </span>
+                            <span class="nav-text">Gestão de Usuários</span>
+                            <svg class="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </li>
+                    <li class="nav-item collapse-item">
+                        <button class="nav-button" id="btn-collapse-sidebar">
+                            <span class="nav-icon-container">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </span>
+                            <span class="nav-text">Ocultar Menu</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Topbar / Cabeçalho Superior -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle-btn" id="menu-toggle" aria-label="Alternar Menu Lateral">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <h1 class="topbar-title">Hub Geral de <span class="accent-text">Indicadores</span></h1>
+                </div>
+                
+                <!-- Filtro Superior de Contrato -->
+                <div class="topbar-right">
+                    <div class="contract-filter-wrapper">
+                        <label for="contract-select" class="filter-label">
+                            <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            <span>Contrato:</span>
+                        </label>
+                        <select id="contract-select" class="contract-select" aria-label="Selecione um contrato">
+                            <option value="todos">Todos os Contratos</option>
+                        </select>
+                    </div>
+                    <div class="user-session" id="user-session">
+                        <div><strong id="session-user-name"></strong><small id="session-user-role"></small></div>
+                        <button class="session-logout" id="btn-logout" type="button">Sair</button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Área do Painel Dinâmico -->
+            <section class="dashboard-viewport" id="dashboard-viewport">
+                <div class="dashboard-header">
+                    <span class="dashboard-subtitle" id="view-subtitle">HUB GERAL DE INDICADORES</span>
+                    <h2 class="dashboard-title" id="view-title">Hub Geral de Indicadores</h2>
+                    <p class="dashboard-description" id="view-description">
+                        Selecione um contrato para acessar os indicadores disponíveis.
+                    </p>
+                    
+                    <div class="filter-status-bar">
+                        <span class="contract-badge" id="contract-badge">Todos os Contratos</span>
+                        <div class="title-underline"></div>
+                    </div>
+                </div>
+                
+                <!-- Grid de Cards de Indicadores -->
+                <div class="indicators-grid" id="indicators-grid">
+                    <!-- Os cards serão gerados dinamicamente via JS -->
+                </div>
+            </section>
+
+            <section class="user-management-viewport" id="user-management-viewport" hidden>
+                <div class="dashboard-header admin-page-header">
+                    <span class="dashboard-subtitle">ADMINISTRAÇÃO E SEGURANÇA</span>
+                    <h2 class="dashboard-title">Gestão de Usuários</h2>
+                    <p class="dashboard-description">Cadastre usuários, defina acessos e acompanhe as alterações realizadas.</p>
+                </div>
+                <div class="admin-toolbar">
+                    <div class="admin-search-grid">
+                        <input class="admin-input" id="user-name-filter" type="search" placeholder="Filtrar por nome">
+                        <input class="admin-input" id="user-email-filter" type="search" placeholder="Filtrar por e-mail">
+                        <input class="admin-input" id="user-job-filter" type="search" placeholder="Filtrar por cargo">
+                        <input class="admin-input" id="user-cost-center-filter" type="search" placeholder="Filtrar por centro de custo">
+                        <select class="admin-input" id="user-level-filter"><option value="">Todos os níveis</option><option value="cco">CCO</option><option value="diretoria">Diretoria</option><option value="gerente_geral">Gerente Geral</option><option value="gerente">Gerente</option><option value="coordenador">Coordenador</option><option value="supervisor">Supervisor</option><option value="analista">Analista</option></select>
+                        <select class="admin-input" id="user-contract-filter"><option value="">Todos os contratos</option></select>
+                        <select class="admin-input" id="user-operation-filter"><option value="">Todas as operações</option></select>
+                        <select class="admin-input" id="user-status-filter"><option value="">Todos os status</option><option value="ativo">Ativos</option><option value="inativo">Inativos</option></select>
+                    </div>
+                    <div class="admin-actions"><button class="btn-secondary" id="btn-audit" type="button">Histórico</button><button class="btn-secondary" id="btn-import-users" type="button">Importar Excel</button><button class="btn-primary" id="btn-new-user" type="button">+ Novo Usuário</button></div>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead><tr><th>Nome</th><th>E-mail</th><th>Cargo</th><th>Nível</th><th>Centro de Custo</th><th>Contrato</th><th>Operação</th><th>Status</th><th>Último acesso</th><th>Ações</th></tr></thead>
+                        <tbody id="users-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Visualizador Embutido de Power BI (Iframe/Detail Mode) -->
+            <section class="iframe-viewport" id="iframe-viewport" style="display: none;">
+                <div class="iframe-header">
+                    <div class="iframe-header-left">
+                        <button class="back-btn" id="btn-voltar-dashboard" title="Voltar ao Painel">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Voltar ao Painel
+                        </button>
+                        <div class="iframe-info">
+                            <span class="iframe-category" id="iframe-category-text">Processos</span>
+                            <h3 class="iframe-title" id="iframe-title-text">Indicador Selecionado</h3>
+                        </div>
+                    </div>
+                    <div class="iframe-header-right">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="external-link-btn" id="iframe-external-link">
+                            Abrir em Nova Aba
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="iframe-container">
+                    <div class="iframe-loader" id="iframe-loader">
+                        <div class="spinner"></div>
+                        <p>Carregando Relatório do Power BI...</p>
+                    </div>
+                    <iframe src="" id="report-iframe" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <section class="auth-screen" id="login-screen" aria-label="Login">
+        <form class="auth-card" id="login-form">
+            <img src="mro_logo.png" alt="MRO" class="auth-logo">
+            <span class="dashboard-subtitle">HUB GERAL DE INDICADORES</span>
+            <h1>Acessar o sistema</h1>
+            <label>E-mail<input id="login-email" type="email" autocomplete="username" required></label>
+            <label>Senha<input id="login-password" type="password" autocomplete="current-password" required></label>
+            <p class="form-error" id="login-error" role="alert"></p>
+            <button class="btn-primary auth-submit" type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <div class="modal-backdrop" id="app-modal" hidden>
+        <section class="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" id="modal-close" type="button" aria-label="Fechar">×</button>
+            <div id="modal-content"></div>
+        </section>
+    </div>
+
+    <!-- Script de inicialização e dados -->
+    <script src="app.js"></script>
+    <script src="access-control.js"></script>
+    <script src="user-management.js"></script>
+</body>
+</html>

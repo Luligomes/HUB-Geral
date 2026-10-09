@@ -1,0 +1,20 @@
+{
+  "name": "hub-geral-indicadores",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check app.js && node --check access-control.js && node --check user-management.js && node --check api/index.js && node --check api/_lib/db.js && node tests/access-control.test.js",
+    "test": "node tests/access-control.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "pg-mem": "^3.0.14",
+    "read-excel-file": "^6.0.1"
+  }
+}
